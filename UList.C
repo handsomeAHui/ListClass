@@ -22,20 +22,10 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 \*---------------------------------------------------------------------------*/
-
-<<<<<<< HEAD
 #include <exception>
-=======
-#include "error.H"
->>>>>>> 7ca9edfe654d6feb6da6f081eedc099747831e85
-
 #include "UList.H"
 #include "ListLoopM.H"
 #include "contiguous.H"
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ca9edfe654d6feb6da6f081eedc099747831e85
 #include <algorithm>
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
@@ -45,16 +35,9 @@ void Foam::UList<T>::assign(const UList<T>& a)
 {
     if (a.size_ != this->size_)
     {
-<<<<<<< HEAD
         std::cout << "UList<T>'s size don't match" << endl;
 	std::exception e;
 	throw e;
-=======
-        FatalErrorIn("UList<T>::assign(const UList<T>&)")
-            << "ULists have different sizes: "
-            << this->size_ << " " << a.size_
-            << abort(FatalError);
->>>>>>> 7ca9edfe654d6feb6da6f081eedc099747831e85
     }
 
     if (this->size_)
@@ -96,16 +79,9 @@ void Foam::UList<T>::swap(UList<T>& a)
 {
     if (a.size_ != this->size_)
     {
-<<<<<<< HEAD
         std::cout << "UList<T>'s size don't match" << endl;
 	std::exception e;
 	throw e;
-=======
-        FatalErrorIn("UList<T>::swap(const UList<T>&)")
-            << "ULists have different sizes: "
-            << this->size_ << " " << a.size_
-            << abort(FatalError);
->>>>>>> 7ca9edfe654d6feb6da6f081eedc099747831e85
     }
 
     List_ACCESS(T, (*this), vp);
@@ -126,16 +102,9 @@ std::streamsize Foam::UList<T>::byteSize() const
 {
     if (!contiguous<T>())
     {
-<<<<<<< HEAD
         std::cout << "don't match class" << T << endl;
 	std::exception e;
 	throw e;
-=======
-        FatalErrorIn("UList<T>::byteSize()")
-            << "Cannot return the binary size of a list of "
-               "non-primitive elements"
-            << abort(FatalError);
->>>>>>> 7ca9edfe654d6feb6da6f081eedc099747831e85
     }
 
     return this->size_*sizeof(T);
